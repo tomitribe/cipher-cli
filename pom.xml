@@ -103,6 +103,38 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.apache.rat</groupId>
+        <artifactId>apache-rat-plugin</artifactId>
+        <version>0.11</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <configuration>
+              <includes>
+                <include>src/**/*</include>
+                <include>pom.xml</include>
+              </includes>
+              <excludes>
+                <exclude>**/*/MANIFEST.MF</exclude>
+                <exclude>.git</exclude>
+                <exclude>.gitignore</exclude>
+                <exclude>derby.log</exclude>
+                <exclude>**/META-INF/services/*</exclude>
+                <exclude>**/bootstrap-*</exclude>
+                <exclude>**/js/jquery-*</exclude>
+                <exclude>**/*.json</exclude>
+                <exclude>src/test/resources/**</exclude>
+                <exclude>src/main/resources/META-INF/org.apache.openejb.cipher.PasswordCipher/*</exclude>
+                <exclude>src/*/resources/META-INF/beans.xml</exclude>
+              </excludes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 
